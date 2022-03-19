@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Articulo from "./Articulo";
+import { eliminar } from "./ayudantes/functionesBoton";
 
 const productos = [
   {
@@ -25,19 +26,21 @@ const productos = [
   },
 ];
 const Articulos = () => {
+  const [listaDeArticulos, setListaDeArticulos] = useState(productos);
   return (
     <section
       className="section box"
       style={{ maxHeight: "70vh", overflowY: "scroll" }}
     >
       {productos.map((producto) => (
-        <Articulo key={producto.id} item={producto} />
+        <Articulo
+          key={producto.id}
+          item={producto}
+          listaDeArticulos={listaDeArticulos}
+          setListaDeArticulos={setListaDeArticulos}
+        />
       ))}
-      {/* <Articulo />
-      <Articulo />
-      <Articulo />
-      <Articulo />
-      <Articulo /> */}
+
     </section>
   );
 };

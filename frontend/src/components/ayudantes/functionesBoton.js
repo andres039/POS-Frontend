@@ -1,12 +1,12 @@
 const definirProductos = (item, operador) => {
   const newProduct = item;
   if (operador === "+") {
-    newProduct["total"] = +(newProduct["total"] + newProduct["precio"]).toFixed(
-      2
-    );
-    newProduct["cantidad"]++;
+    newProduct["total"] = newProduct["total"] + newProduct["precio"];
+    newProduct["cantidad"] = newProduct["cantidad"] + 1;
   }
-  if (newProduct.cantidad === 0) {return}
+  if (newProduct.cantidad === 0) {
+    return;
+  }
 
   if (operador === "-") {
     newProduct["total"] = +(newProduct["total"] - newProduct["precio"]).toFixed(
@@ -14,7 +14,7 @@ const definirProductos = (item, operador) => {
     );
     newProduct["cantidad"]--;
   }
-  
+
   return newProduct;
 };
 
@@ -46,7 +46,7 @@ const productos = [
 parametro: id
 cuando lo encuentre cree un array sin el
 */
-const eliminar = (array,id) => {
-  return array.filter(element => element.id !== id)
-}
- export { definirProductos, eliminar };
+const eliminar = (array, id) => {
+  return array.filter((element) => element.id !== id);
+};
+export { definirProductos, eliminar };

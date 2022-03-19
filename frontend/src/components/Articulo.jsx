@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { definirProductos } from "./ayudantes/functionesBoton";
 import Boton from "./Boton";
 
-const Articulo = ({item}) => {
+const Articulo = ({item, eliminar, listaDeArticulos, setListaDeArticulos}) => {
   const [producto, setProducto] = useState(item); 
+  //useEffect(() => {}, [producto])
   return (
     <div className="box">
       <div className="columns ">
         <div className="column is-one-fifth">
-          <Boton tipo={"eliminar"}>X</Boton>
+          <Boton tipo={"eliminar"} handleClick={() => setListaDeArticulos(eliminar(listaDeArticulos, producto.id))}>X</Boton>
         </div>
         <div className="column is-one-fifth">
           <figure className="image is-96x96">
@@ -36,7 +37,9 @@ const Articulo = ({item}) => {
               handleClick={() => {
                 setProducto((prev) => ({
                   ...prev,
-                  ...definirProductos(producto, "+"),
+                  cantidad: prev.cantidad + 1,
+                  total: +(prev.total + prev.precio).toFixed(2)  
+                  // ...definirProductos(producto, "+"),
                 }));
               }}
               tipo="agregar"
@@ -47,7 +50,9 @@ const Articulo = ({item}) => {
               handleClick={() => {
                 setProducto((prev) => ({
                   ...prev,
-                  ...definirProductos(producto, "-"),
+                  cantidad: prev.cantidad - 1,
+                  total: +(prev.total - prev.precio).toFixed(2)  
+                  // ...definirProductos(producto, "+"),
                 }));
               }}
               tipo="reducir"
