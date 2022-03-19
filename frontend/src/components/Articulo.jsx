@@ -1,17 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { definirProductos } from "./ayudantes/functionesBoton";
 import Boton from "./Boton";
 
-const soda = {
-  item: "soda",
-  precio: 1.55,
-  cantidad: 1,
-  total: 1.55,
-};
-
-const Articulo = () => {
-  const [producto, setProducto] = useState(soda);
-  useEffect(() => {}, [producto]);
+const Articulo = ({item}) => {
+  const [producto, setProducto] = useState(item); 
   return (
     <div className="box">
       <div className="columns ">
@@ -51,12 +43,18 @@ const Articulo = () => {
             >
               +
             </Boton>
-            <Boton handleClick={() => {
+            <Boton
+              handleClick={() => {
                 setProducto((prev) => ({
                   ...prev,
                   ...definirProductos(producto, "-"),
                 }));
-              }}tipo="reducir" > - </Boton>
+              }}
+              tipo="reducir"
+            >
+              {" "}
+              -{" "}
+            </Boton>
           </div>
         </div>
       </div>

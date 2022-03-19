@@ -18,13 +18,35 @@ const definirProductos = (item, operador) => {
   return newProduct;
 };
 
-const soda = {
-  item: "soda",
-  precio: 1.55,
-  cantidad: 1,
-  total: 1.55,
-};
+const productos = [
+  {
+    id: 1,
+    item: "soda",
+    precio: 1.55,
+    cantidad: 1,
+    total: 1.55,
+  },
+  {
+    id: 2,
+    item: "pan",
+    precio: 0.55,
+    cantidad: 1,
+    total: 0.55,
+  },
+  {
+    id: 3,
+    item: "caldo",
+    precio: 3.85,
+    cantidad: 1,
+    total: 3.85,
+  },
+];
 
-console.log(definirProductos(soda, "+"));
-
-export { definirProductos };
+/* Function que elimine elemento del array usando el id
+parametro: id
+cuando lo encuentre cree un array sin el
+*/
+const eliminar = (array,id) => {
+  return array.filter(element => element.id !== id)
+}
+ export { definirProductos, eliminar };
