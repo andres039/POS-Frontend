@@ -3,7 +3,7 @@ import Boton from "./Boton";
 
 const ListadoDeArticulos = () => {
   return (
-    <section className="hero is-info">
+    <section className="hero is-link">
       <div className="hero-body">
         <nav className="navbar">
           <p className="title">Listado de articulos</p>

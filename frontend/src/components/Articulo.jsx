@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { definirProductos } from "./ayudantes/functionesBoton";
 import Boton from "./Boton";
 
+const soda = {
+  item: "soda",
+  precio: 1.55,
+  cantidad: 1,
+  total: 1.55,
+};
+
+
 const Articulo = () => {
+  const [producto, setProducto] = useState(soda);
+  useEffect(() => {}, [producto]);
   return (
     <div className="box">
-      <div className="columns">
+      <div className="columns ">
         <div className="column is-one-fifth">
           <Boton tipo={"eliminar"}>X</Boton>
         </div>
@@ -15,19 +26,41 @@ const Articulo = () => {
         </div>
         <div className="column is-one-fifth">
           <h3 className="subtitle">Precio/U</h3>
-          <p>12.50</p>
-          <p>Caldo de Pollo</p>
+          <p>$ {producto.precio}</p>
+          <p>{producto.item}</p>
         </div>
         <div className="column is-one-fifth">
           <h3 className="subtitle">Total</h3>
-          <p>25</p>
+          <p>$ {producto.total}</p>
           <h3 className="subtitle">Cantidad</h3>
-          <p>2</p>
+          <p>{producto.cantidad}</p>
         </div>
 
         <div className="column is-one-fifth">
-          <Boton tipo="agregar">+</Boton>
-          <Boton tipo="reducir">-</Boton>
+          <div
+            className="tile is-vertical"
+            style={{ maxWidth: "4rem", gap: "0.5rem" }}
+          >
+            <Boton
+              handleClick={() => {
+                console.log('antes', producto)
+                let modified = definirProductos(producto, "+");
+                const tea = {
+                  item: "tea",
+                  precio: 6.66,
+                  cantidad: 5,
+                  total: 6.66,
+                };
+                console.log("modified", modified);
+                console.log("producto", producto);
+                setProducto(tea);
+              }}
+              tipo="agregar"
+            >
+              +
+            </Boton>
+            <Boton tipo="reducir"> - </Boton>
+          </div>
         </div>
       </div>
     </div>
