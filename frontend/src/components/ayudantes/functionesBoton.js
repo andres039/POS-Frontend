@@ -1,12 +1,20 @@
 const definirProductos = (item, operador) => {
   const newProduct = item;
   if (operador === "+") {
-    newProduct['total'] = +(newProduct['total'] + newProduct['precio']).toFixed(2);
-    newProduct['cantidad']++
-  } else {
-    newProduct['total'] = +(newProduct['total'] - newProduct['precio']).toFixed(2);
-    newProduct['cantidad']--
+    newProduct["total"] = +(newProduct["total"] + newProduct["precio"]).toFixed(
+      2
+    );
+    newProduct["cantidad"]++;
   }
+  if (newProduct.cantidad === 0) {return}
+
+  if (operador === "-") {
+    newProduct["total"] = +(newProduct["total"] - newProduct["precio"]).toFixed(
+      2
+    );
+    newProduct["cantidad"]--;
+  }
+  
   return newProduct;
 };
 

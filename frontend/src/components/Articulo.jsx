@@ -9,7 +9,6 @@ const soda = {
   total: 1.55,
 };
 
-
 const Articulo = () => {
   const [producto, setProducto] = useState(soda);
   useEffect(() => {}, [producto]);
@@ -43,23 +42,21 @@ const Articulo = () => {
           >
             <Boton
               handleClick={() => {
-                console.log('antes', producto)
-                let modified = definirProductos(producto, "+");
-                const tea = {
-                  item: "tea",
-                  precio: 6.66,
-                  cantidad: 5,
-                  total: 6.66,
-                };
-                console.log("modified", modified);
-                console.log("producto", producto);
-                setProducto(tea);
+                setProducto((prev) => ({
+                  ...prev,
+                  ...definirProductos(producto, "+"),
+                }));
               }}
               tipo="agregar"
             >
               +
             </Boton>
-            <Boton tipo="reducir"> - </Boton>
+            <Boton handleClick={() => {
+                setProducto((prev) => ({
+                  ...prev,
+                  ...definirProductos(producto, "-"),
+                }));
+              }}tipo="reducir" > - </Boton>
           </div>
         </div>
       </div>
