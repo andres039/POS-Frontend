@@ -7,7 +7,7 @@ const Boton = ({ children, tipo, handleClick }) => {
   if (tipo === "eliminar") { estilo = `is-link`} 
   if (tipo === "reducir") { estilo = `is-danger`}
   return (
-    <button className={`button has-text-weight-bold is-size-5 ${estilo}`} onClick={()=> handleClick()} >
+    <button className={`button has-text-weight-bold is-size-5 ${estilo}`} onClick={handleClick} >
       {children}
     </button>
   );
