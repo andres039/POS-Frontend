@@ -5,6 +5,14 @@ import Boton from "./Boton";
 const Articulo = ({item, eliminar, listaDeArticulos, setListaDeArticulos}) => {
   const [producto, setProducto] = useState(item); 
   //useEffect(() => {}, [producto])
+  const disminuir = () => {
+    setProducto((prev) => ({
+      ...prev,
+      cantidad: prev.cantidad > 0 ? prev.cantidad - 1 : 0,
+      total: prev.cantidad > 0 ? +(prev.total - prev.precio).toFixed(2)  : 0
+      // ...definirProductos(producto, "+"),
+    }));
+  }
   return (
     <div className="box">
       <div className="columns ">
@@ -47,14 +55,7 @@ const Articulo = ({item, eliminar, listaDeArticulos, setListaDeArticulos}) => {
               +
             </Boton>
             <Boton
-              handleClick={() => {
-                setProducto((prev) => ({
-                  ...prev,
-                  cantidad: prev.cantidad - 1,
-                  total: +(prev.total - prev.precio).toFixed(2)  
-                  // ...definirProductos(producto, "+"),
-                }));
-              }}
+              handleClick={disminuir}
               tipo="reducir"
             >
               {" "}
