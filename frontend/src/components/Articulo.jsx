@@ -10,7 +10,7 @@ const Articulo = ({ item, listaDeArticulos, setListaDeArticulos }) => {
       cantidad: prev.cantidad + 1,
       total: +(prev.total + prev.precio).toFixed(2),
     }));
-  }
+  };
   const disminuir = () => {
     setProducto((prev) => ({
       ...prev,
@@ -20,10 +20,12 @@ const Articulo = ({ item, listaDeArticulos, setListaDeArticulos }) => {
   };
 
   const eliminar = () => {
-    const newArray = listaDeArticulos.filter((element) => element.id !== producto.id);
+    const newArray = listaDeArticulos.filter(
+      (element) => element.id !== producto.id
+    );
     setListaDeArticulos(newArray);
   };
-  
+
   return (
     <div className="box">
       <div className="columns ">
@@ -54,10 +56,7 @@ const Articulo = ({ item, listaDeArticulos, setListaDeArticulos }) => {
             className="tile is-vertical"
             style={{ maxWidth: "4rem", gap: "0.5rem" }}
           >
-            <Boton
-              handleClick={aumentar}
-              tipo="agregar"
-            >
+            <Boton handleClick={aumentar} tipo="agregar">
               +
             </Boton>
             <Boton handleClick={disminuir} tipo="reducir">
