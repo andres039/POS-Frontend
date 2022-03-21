@@ -30,7 +30,7 @@ const Articulos = () => {
   return (
     <section
       className="section box"
-      style={{ maxHeight: "70vh", overflowY: "scroll" }}
+      style={{ minHeight: "70vh", maxHeight: "70vh", overflowY: "scroll" }}
     >
       {listaDeArticulos.map((producto) => (
         <Articulo
@@ -44,5 +44,4 @@ const Articulos = () => {
     </section>
   );
 };
-
 export default Articulos;
