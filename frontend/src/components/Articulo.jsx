@@ -36,7 +36,7 @@ const Articulo = ({ item, listaDeArticulos, setListaDeArticulos }) => {
         </div>
         <div className="column is-one-fifth">
           <figure className="image is-96x96">
-            <img src="https://bulma.io/images/placeholders/128x128.png" />
+            <img src={producto.imageUrl} />
           </figure>
         </div>
         <div className="column is-one-fifth">
