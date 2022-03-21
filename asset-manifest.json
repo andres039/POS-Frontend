@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/POS-Frontend/static/css/main.47114738.css",
+    "main.js": "/POS-Frontend/static/js/main.fe3594ce.js",
+    "index.html": "/POS-Frontend/index.html",
+    "main.47114738.css.map": "/POS-Frontend/static/css/main.47114738.css.map",
+    "main.fe3594ce.js.map": "/POS-Frontend/static/js/main.fe3594ce.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.47114738.css",
+    "static/js/main.fe3594ce.js"
+  ]
+}
