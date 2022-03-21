@@ -6,13 +6,11 @@ import Listado from "./components/Index";
 function App() {
   return (
     <div className="App">
-      <div className="columns">
-        <div className="column">
-          <Button>Sanity check</Button>
-        </div>
-        <div className="column">
-          <Listado />
-        </div>
+      <div className="container">
+        
+      <div className="columns container">
+          <Listado className="column is-narrow"/>
+          </div>
       </div>
     </div>
   );
